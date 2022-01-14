@@ -43,7 +43,6 @@ export default [
     "Gilad Pellaeon",
     "Grand Moff Tarkin",
     "Greedo",
-    "Han Solo",
     "IG 88",
     "Jabba The Hutt",
     "Jacen Solo",
