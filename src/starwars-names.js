@@ -80,6 +80,7 @@ export default [
     "Revan",
     "Satele Shan",
     "Savage Opress",
+    "Schmi Skywalker",
     "Sebulba",
     "Shaak Ti",
     "Shmi Skywalker",
