@@ -9,4 +9,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
-        uses: ./github/actions/build
+        uses: ./.github/actions/build
