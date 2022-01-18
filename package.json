@@ -1,12 +1,13 @@
 {
   "name": "starwars-names-shaar",
   "version": "0.0.0-development",
-  "type": "module",
   "description": "Get random Star Wars names",
   "main": "src/index.js",
   "scripts": {
+    "commit": "cz",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,16 @@
     "unique-random-array": "3.0.0"
   },
   "devDependencies": {
-    "semantic-release": "18.0.1"
+    "@commitlint/cz-commitlint": "16.0.3",
+    "commitizen": "4.2.4",
+    "commitlint": "16.0.3",
+    "husky": "^7.0.0",
+    "semantic-release": "18.0.1",
+    "semantic-release-slack-bot": "3.4.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
