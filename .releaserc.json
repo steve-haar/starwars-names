@@ -1,41 +1,61 @@
 {
-    "branches": [
-        "+([0-9])?(.{+([0-9]),x}).x",
-        "latest",
-        { "name": "next", "prerelease": true },
-        { "name": "beta", "prerelease": true }
-    ],
-    "plugins": [
-        ["@semantic-release/commit-analyzer", {
-          "releaseRules": [
-            {"type": "chore", "release": false},
-            {"type": "fix", "release": "patch"},
-            {"type": "feat", "release": "minor"}
-          ],
-          "parserOpts": {
-            "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+  "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "latest",
+      { "name": "next", "prerelease": true },
+      { "name": "beta", "prerelease": true }
+  ],
+  "plugins": [
+    ["@semantic-release/commit-analyzer", {
+      "releaseRules": [
+        {"type": "chore", "release": false},
+        {"type": "fix", "release": "patch"},
+        {"type": "feat", "release": "minor"}
+      ],
+      "parserOpts": {
+        "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+      }
+    }],
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    [
+      "semantic-release-slack-bot",
+      {
+        "notifyOnSuccess": false,
+        "notifyOnFail": false,
+        "branchesConfig": [
+          {
+            "pattern": "latest",
+            "notifyOnSuccess": true,
+            "notifyOnFail": true
+          },
+          {
+            "pattern": "[0-9]+.[0-9]+.x",
+            "notifyOnSuccess": true,
+            "notifyOnFail": true
           }
-        }],
-        "@semantic-release/release-notes-generator",
-        "@semantic-release/npm",
-        [
-            "semantic-release-slack-bot",
-            {
-              "notifyOnSuccess": true,
-              "notifyOnFail": true,
-              "branchesConfig": [
-                {
-                  "pattern": "latest",
-                  "notifyOnSuccess": true,
-                  "notifyOnFail": true
-                },
-                {
-                  "pattern": "[0-9]+.[0-9]+.x",
-                  "notifyOnSuccess": true,
-                  "notifyOnFail": true
-                }
-              ]
-            }
-          ]
+        ]
+      }
+    ],
+    ["semantic-release-npm-deprecate-old-versions", {
+      "rules": [
+        { 
+          "rule": "supportLatest", 
+          "options": {
+            "numberOfMajorReleases": 2,
+            "numberOfMinorReleases": "all",
+            "numberOfPatchReleases": "all"
+          }
+        },
+        { 
+          "rule": "supportPreReleaseIfNotReleased", 
+          "options": {
+            "numberOfPreReleases": "all"
+          }
+        },
+        "deprecateAll"
       ]
+    }]
+  ]
 }
