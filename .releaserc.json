@@ -23,7 +23,7 @@
             {
               "notifyOnSuccess": true,
               "notifyOnFail": true,
-              "slackWebhook": "https://hooks.slack.com/services/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",
+              "slackWebhook": "https://hooks.slack.com/services/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",
               "branchesConfig": [
                 {
                   "pattern": "latest",
