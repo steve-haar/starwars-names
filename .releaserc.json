@@ -8,9 +8,10 @@
   "plugins": [
     ["@semantic-release/commit-analyzer", {
       "releaseRules": [
-        {"type": "chore", "release": false},
+        {"breaking": true, "release": "major"},
+        {"type": "feat", "release": "minor"},
         {"type": "fix", "release": "patch"},
-        {"type": "feat", "release": "minor"}
+        {"type": "chore", "release": false}
       ],
       "parserOpts": {
         "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
