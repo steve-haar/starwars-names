@@ -29,6 +29,7 @@
     "unique-random-array": "3.0.0"
   },
   "devDependencies": {
+    "@amanda-mitchell/semantic-release-npm-multiple": "2.15.0",
     "@commitlint/cz-commitlint": "16.0.3",
     "commitizen": "4.2.4",
     "commitlint": "16.0.3",

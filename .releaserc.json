@@ -57,6 +57,16 @@
         },
         "deprecateAll"
       ]
-    }]
+    }],
+    [
+      "@amanda-mitchell/semantic-release-npm-multiple",
+      {
+        "registries": {
+          "application": {
+            "pkgRoot": "."
+          }
+        }
+      }
+    ]
   ]
 }
